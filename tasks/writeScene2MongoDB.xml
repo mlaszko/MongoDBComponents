@@ -17,7 +17,7 @@
 	<Subtasks>
 		<Subtask name="Processing">
 			<Executor name="Processing"  period="1">
-			<Component name="SceneWriter" type="MongoDB:SceneWriter" priority="1">
+			<Component name="SceneWriter" type="MongoDBComponents:SceneWriter" priority="1">
 			</Component>
 			</Executor>
 			<!--Executor name="Exec1" period="0.01">

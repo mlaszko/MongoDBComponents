@@ -17,7 +17,7 @@
 	<Subtasks>
 		<Subtask name="Processing">
 			<Executor name="Processing"  period="1">
-			<Component name="Exporter" type="MongoDB:MongoDBExporter" priority="2">
+			<Component name="Exporter" type="MongoDBComponents:MongoDBExporter" priority="2">
 			</Component>
 			</Executor>
 		</Subtask>

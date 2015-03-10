@@ -31,7 +31,7 @@
 				<param name="mode.auto_streaming">0</param>
 				<param name="read_on_init">1</param>	
 			</Component>
-			<Component name="Writer" type="MongoDB:ViewWriter" priority="4">
+			<Component name="Writer" type="MongoDBComponents:ViewWriter" priority="4">
 				  <param name="suffix">1</param>
 			</Component>
 			</Executor>

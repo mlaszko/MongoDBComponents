@@ -28,7 +28,7 @@
 				<param name="mode.loop">0</param>
 				<param name="mode.auto_trigger">0</param>
 			</Component-->
-			<Component name="Writer" type="MongoDB:ModelWriter" priority="4">
+			<Component name="Writer" type="MongoDBComponents:ModelWriter" priority="4">
 				  <!--param name="PC.in_pc_xyzrgb">1</param>
 				  <param name="PC.in_pc_xyz">1</param-->
 			</Component>

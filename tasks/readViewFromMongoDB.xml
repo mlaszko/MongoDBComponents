@@ -17,7 +17,7 @@
 	<Subtasks>
 		<Subtask name="Processing">
 			<Executor name="Processing"  period="1">
-			<Component name="ViewReader" type="MongoDB:ViewReader" priority="1">
+			<Component name="ViewReader" type="MongoDBComponents:ViewReader" priority="1">
 			</Component>
 			</Executor>
 			

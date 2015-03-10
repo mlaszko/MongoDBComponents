@@ -17,9 +17,9 @@
 	<Subtasks>
 		<Subtask name="Processing">
 			<Executor name="Processing"  period="1">
-			<Component name="Writer" type="MongoDB:MongoDBWriter" priority="1">
+			<Component name="Writer" type="MongoDBComponents:MongoDBWriter" priority="1">
 			</Component>
-			<Component name="Reader" type="MongoDB:MongoDBReader" priority="2">
+			<Component name="Reader" type="MongoDBComponents:MongoDBReader" priority="2">
 			</Component>
 			</Executor>
 		</Subtask>

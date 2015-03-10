@@ -17,7 +17,7 @@
 	<Subtasks>
 		<Subtask name="Processing">
 			<Executor name="Processing"  period="1">
-			<Component name="Remover" type="MongoDB:ModelRemover" priority="1">
+			<Component name="Remover" type="MongoDBComponents:ModelRemover" priority="1">
 			</Component>
 			</Executor>
 			<!--Executor name="Exec1" period="0.01">
