@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Task>
+	<!-- reference task information -->
+	<Reference>
+		<Author>
+			<name>Lukasz Zmuda</name>
+			<link></link>
+		</Author>
+
+		<Description>
+			<brief></brief>
+			<full></full>	
+		</Description>
+	</Reference>
+
+	<!-- task definition -->
+	<Subtasks>
+		<Subtask name="Processing">
+			<Executor name="Processing"  period="1">
+			      <Component name="CIPGenerator" type="MongoDB:CIPGenerator" priority="2">
+			      </Component>
+			      <Component name="Writer" type="MongoDB:ViewWriter" priority="4">
+				  <param name="suffix">1</param>
+			      </Component>
+			</Executor>
+		</Subtask>
+	</Subtasks>			
+
+	<!-- pipes connecting datastreams -->
+	<DataStreams>
+		<Source name="CIPGenerator.CIPString">
+			<sink>Writer.cipFileIn</sink>
+		</Source>
+	</DataStreams>
+</Task>
+

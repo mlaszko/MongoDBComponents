@@ -1,0 +1,28 @@
+,
+93948,
+91223,
+92386,
+95306,
+95416,
+101793,
+92511,
+91185,
+91284,
+937039,
+,"""db"" : ""images"",
+	""collections"" : 3,
+	""objects"" : 1706,
+	""avgObjSize"" : 2168662.2157092616,
+	""dataSize"" : 3699737740,
+	""storageSize"" : 4764205056,
+	""numExtents"" : 11,
+	""indexes"" : 1,
+	""indexSize"" : 106288,
+	""fileSize"" : 8519680000,
+	""nsSizeMB"" : 16,
+	""dataFileVersion"" : {
+		""major"" : 4,
+		""minor"" : 5
+	},
+	""ok"" : 1
+"

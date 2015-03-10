@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Task>
+	<!-- reference task information -->
+	<Reference>
+		<Author>
+			<name>Lukasz Zmuda</name>
+			<link></link>
+		</Author>
+
+		<Description>
+			<brief></brief>
+			<full></full>	
+		</Description>
+	</Reference>
+
+	<!-- task definition -->
+	<Subtasks>
+		<Subtask name="Processing">
+			<Executor name="Processing"  period="1">
+			<Component name="Writer" type="MongoDB:MongoDBWriter" priority="1">
+			</Component>
+			<Component name="Reader" type="MongoDB:MongoDBReader" priority="2">
+			</Component>
+			</Executor>
+		</Subtask>
+		<!--Subtask name="Visualisation">
+			<Executor name="Exec1" period="0.01">
+				<Component name="RGBDViewer" type="DCL_CameraNUI:RGBDViewer" priority="1" bump="0">
+				</Component>
+				<Component name="Window" type="CvBasic:CvWindow" priority="2" bump="0">
+					<param name="count">3</param>
+					<param name="title">WithObject, WithoutObject, Mask</param>
+				</Component>
+			</Executor>
+		</Subtask-->
+		</Subtasks>			
+
+	<!-- pipes connecting datastreams -->
+	<DataStreams>
+	</DataStreams>
+</Task>
+

@@ -1,0 +1,43 @@
+Działanie aplikacji:
+1. ModelReader
+Metoda: readFromMongoDB(const string& nodeType, const string& modelOrViewName, const string& type)
+
+Znalezienie i zpisawanie do kursora dokumentów:
+findDocumentInCollection(*c, dbCollectionPath, objectName, nodeType, cursorCollection, modelOrViewName, type, items);
+
+Dla każdego dokumentu sprawdź czy zawiera dzieci.
+Jeśli nie zawiera dzieci to nie rób nic,
+Jeśli zawiera dzieci:
+   -dziecko jest zawiera pliki to dodaj wektor dzieci do globalnego wektora dzieci;
+   -dziecko nie zawiera plików:
+      dla każdego dziecka:
+	pobierz dokument dziecka
+	Jeśli dziecko jest modelem to ustaw nazwę modelu wywołując metodę setModelOrViewName i wywołaj metodę readFromMongoDB
+	Jeśli dziecko jest widokiem to nic nie rób
+	Jeśli jest SOM lub SSOM i on równa się temu co chcemy pobrać w modelType to wywołaj readFromMongoDB
+	Jeśli dziecko nie należy do żadnego z powyższych to wywołaj readFromMongoDB 
+
+	
+Metoda: readAllFilesTriggered
+Dla każdego OID w z globalnego wektora wywołaj metodę readFile, do wyjścia out_models prześlij wektor modeli 
+
+Metoda readFile:
+Pobierz obiekt dokumentu
+Odczytaj gdzie jest zapisany plik.
+
+Jeśli jest zapisany bezpośredno w bazie readFromMongoDB
+  Odczytaj rodzaj pliku
+    Jeśli w dokumencie jest zapisany obraz to odczytaj dane binarne do bufora typu uchar i wywołaj metodę cv::imdecode, konwertującą bufor do obiektu cv::Mat
+  Obiekt zapisać do wyjścia out_img.
+    Jeśli zapisana jest chmura pcd, to odczytaj rodzaj chmury (xyzrgb, xyzsift), odczytaj dane do bufora typu float, oblicz liczbę punktów w chmurze znając
+  rozmiar bufora i rozmiar jednego punktu. Dla każdego punktu odczytaj jego współrzędne z bufora i zapisz do chmury punktów. 
+  Wywołaj metodę loadModels();
+    Jeśli zapisany jest plik tekstowy to odczytaj dane binarne do tablicy typu char, konwertuj tablicę do typu string i zapisz na wyjście cipFileOut.
+  Jeśli jest zapisany w GridFS to:
+  Znajdź i pobierz plik z GridFS. Odczytaj nazwę pliku i jego rodzaj. Wywoałaj getFileFromGrid() zapisującą zawartość pliku do strumienia.
+  Wywołaj metodę writeToSink odczytującą pliki z dysku komputera. W tej metodzie jeśli plik jest obrazem to użyj metody cv:imread, jak jest chmurą to 
+  użyj metody pcl::io::loadPCDFile(), a jak jest plikiem tekstowym to użyj odczytu do strumienia: obiekt std::ofstream.
+
+  
+Metoda loadModels:
+Wyprodukuj model zgodny z typem odczytanej chmury i zapisz go do wektora modeli

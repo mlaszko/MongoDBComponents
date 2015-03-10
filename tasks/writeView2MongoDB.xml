@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Task>
+	<!-- reference task information -->
+	<Reference>
+		<Author>
+			<name>Lukasz Zmuda</name>
+			<link></link>
+		</Author>
+
+		<Description>
+			<brief></brief>
+			<full></full>	
+		</Description>
+	</Reference>
+
+	<!-- task definition -->
+	<Subtasks>
+		<Subtask name="Processing">
+			<Executor name="Processing"  period="1">
+			 <!--Component name="Source" type="PCL:PCDReader" priority="1" bump="0"-->
+				<!--param name="filename">/home/lzmuda/PCL_Plane/SiftCloud.pcd</param--><!--xyzsift-->
+				<!--param name="filename">/home/lzmuda/PCL_Plane/table_scene_mug_stereo_textured_cylinder.pcd</param--><!--xyz-->
+				<!--param name="filename">/home/lzmuda/PCL_Plane/table_scene_mug_stereo_texturedMod.pcd</param--><!--xyzrgb-->
+			<!--/Component-->
+			<Component name="NextImageTrigger" type="DCL_CvBasic:Trigger" priority="2" bump="0"></Component>
+			<Component name="Input" type="DCL_CvBasic:Sequence" priority="3">
+				<param name="sequence.directory">/home/lzmuda/mongo_driver_tutorial/lab012_View/</param>
+				<!--param name="sequence.directory">/home/lzmuda/jogurt/coordinates/</param-->
+				<param name="mode.loop">0</param>
+				<param name="mode.auto_next_image">0</param>
+				<param name="mode.auto_streaming">0</param>
+				<param name="read_on_init">1</param>	
+			</Component>
+			<Component name="Writer" type="MongoDB:ViewWriter" priority="4">
+				  <param name="suffix">1</param>
+			</Component>
+			</Executor>
+			<Executor name="Exec1" period="0.01">
+				<Component name="CvWindow" type="DCL_CvBasic:CvWindow" priority="1" bump="0">
+					<param name="count">1</param>
+					<param name="title">Source</param>
+				</Component>
+				<!--Component name="InputCloud" type="PCL:CloudViewer" priority="2" bump="0">
+				</Component-->
+			</Executor>
+		</Subtask->
+	</Subtasks>
+	<!-- pipes connecting datastreams -->
+	<DataStreams>
+		<Source name="NextImageTrigger.out_trigger">
+			<sink>Input.in_stream_trigger</sink>
+		</Source>
+		<!--Source name="Source.out_cloud_xyzrgb"-->
+			<!--sink>Writer.in_cloud_xyzsift</sink-->
+			<!--sink>Writer.in_cloud_xyzrgb</sink-->
+			<!--sink>InputCloud.in_cloud_xyzsift</sink-->
+		<!--/Source-->
+		<Source name="Input.out_img">
+			<!--sink>Writer.in_yaml</sink-->	
+			<sink>Writer.in_rgb</sink>
+			<sink>CvWindow.in_img</sink>
+		</Source>
+	</DataStreams>
+</Task>
+
