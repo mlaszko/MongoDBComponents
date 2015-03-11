@@ -88,7 +88,7 @@ void SceneWriter::addSceneToView()
 	viewPtr = boost::shared_ptr<View>(new View(vn,hostname));
 	scenePtr = boost::shared_ptr<Scene>(new Scene(sn,hostname));
 	bool exist = viewPtr->checkIfExist();
-	BSONObj sceneQuery = BSON("SceneName"<<sceneName<<"DocumentType"<<"Scene");
+	BSONObj sceneQuery = BSON("Name"<<sceneName<<"Type"<<"Scene");
 	// no view
 	if(!exist)
 	{
@@ -137,7 +137,7 @@ void SceneWriter::addSceneToView()
 			sceneOID=sceneOI.__oid();
 		}
 		//check if view contains scene and scene contains view
-		BSONObj viewQuery = BSON("ViewName"<<viewName<<"DocumentType"<<"View");
+		BSONObj viewQuery = BSON("Name"<<viewName<<"Type"<<"View");
 
 		BSONObj view = MongoProxy::MongoProxy::getSingleton(hostname).findOne(viewQuery);
 		string output = view.getField("SceneName");
