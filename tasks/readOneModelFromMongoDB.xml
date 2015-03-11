@@ -41,9 +41,9 @@
 		<Source name="ModelReader.out_pc_xyzrgb">
 			<sink>InputCloud.in_cloud_xyzrgb</sink>
 		</Source>
-<!--		<Source name="ModelReader.out_cloud_xyzsift">
+		<Source name="ModelReader.out_pc_xyzsift">
 			<sink>InputCloud.in_cloud_xyzsift</sink>
-		</Source>-->
+		</Source>
 	</DataStreams>
 </Task>
 

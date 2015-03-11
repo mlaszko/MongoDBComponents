@@ -4,13 +4,6 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Find OpenCV library files
 FIND_PACKAGE( OpenCV REQUIRED )
 
-INCLUDE_DIRECTORIES(/home/lzmuda/mongo-client-install/include)
-INCLUDE_DIRECTORIES(/home/lzmuda/DisCODe/build/inst/include/Base)
-INCLUDE_DIRECTORIES(/home/lzmuda/DisCODe/build/inst/include/Client)
-INCLUDE_DIRECTORIES(/home/lzmuda/DisCODe/build/inst/include/Common)
-LINK_DIRECTORIES(/home/lzmuda/mongo-client-install/lib)
-
-
 # Create a variable containing all .cpp files:
 FILE(GLOB files *.cpp)
 
@@ -22,7 +15,7 @@ set( LIBS_TO_LINK
     ${CMAKE_THREAD_LIBS_INIT}
     ${OpenCV_LIBS} 
     ${DisCODe_LIBRARIES} 
-    libmongoclient.a
+    ${MongoDB_LIBRARIES}
 )
 
 ADD_LIBRARY(ModelWriter SHARED ${files} )

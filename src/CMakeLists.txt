@@ -20,6 +20,10 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
+FIND_PACKAGE(MongoDB)
+include_directories(${MongoDB_INCLUDE_DIR})
+link_directories(${MongoDB_LIBRARIES})
+
 DISCODE_FIND_DCL(PCLCoreTypes)
 DISCODE_FIND_DCL(SIFTObjectModel)
 
