@@ -18,8 +18,8 @@ import array
 from bson import Binary, Code
 from bson.json_util import dumps
 connection = pymongo.MongoClient()
-client = MongoClient('localhost', 27017)
-#client = MongoClient('/home/lzmuda/mongoSock/mongodb-27017.sock')
+#client = MongoClient('localhost', 27017)
+client = MongoClient('/home/lzmuda/mongoSock/mongodb-27017.sock')
 db = client.images
 collection = db.containers
 FileList = []
