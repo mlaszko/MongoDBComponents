@@ -31,7 +31,9 @@ python web_application.py
    * Web browser addresses
    
 http://localhost:28017/ - MongoDB status
+
 http://localhost:8080/static/objects/models - models management
+
 http://localhost:8080/static/objects/views - views management
 
 Maintainer
