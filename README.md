@@ -20,7 +20,7 @@ PCLCoreTypes - DisCODe DCL
 Utilization
 ----------
 
-   * Run the MongoDB deamon from your mongodb directory (e.g /home/discode/mongo_db/mongodb-linux-x86_64-2.6.7)
+   * Run the MongoDB deamon from your mongodb directory (e.g /home/discode/mongo_db/mongodb-linux-x86_64-2.6.7/bin)
 
 ./mongod --rest --dbpath=/home/discode/mongo_db/wut_mongo_db
 
