@@ -17,6 +17,8 @@ from bson import Binary
 import array
 from bson import Binary, Code
 from bson.json_util import dumps
+
+
 connection = pymongo.MongoClient()
 client = MongoClient('localhost', 27017)
 #client = MongoClient('/home/lzmuda/mongoSock/mongodb-27017.sock')
@@ -214,7 +216,7 @@ def drawAddButton(Name, DocumentType, SensorType, mode, addString):
     addString = '''<OPTION selected label="ImageRgb" value="ImageRgb">ImageRgb</OPTION><OPTION selected label="FileCameraInfo" value="FileCameraInfo">FileCameraInfo</OPTION><OPTION selected label="ImageXyz" value="ImageXyz">ImageXyz</OPTION><OPTION selected label="ImageDepth" value="ImageDepth">ImageDepth</OPTION><OPTION selected label="ImageIntensity" value="ImageIntensity">ImageIntensity</OPTION><OPTION selected label="ImageMask" value="ImageMask">ImageMask</OPTION><OPTION selected label="StereoLeft" value="StereoLeft">StereoLeft</OPTION><OPTION selected label="StereoRight" value="StereoRight">StereoRight</OPTION><OPTION selected label="StereoLeftTextured" value="StereoLeftTextured">StereoLeftTextured</OPTION><OPTION selected label="StereoRightTextured" value="StereoRightTextured">StereoRightTextured</OPTION><OPTION selected label="PCXyz" value="PCXyz">PCXyz</OPTION><OPTION selected label="PCXyzRgb" value="PCXyzRgb">PCXyzRgb</OPTION><OPTION selected label="PCXyzSift" value="PCXyzSift">PCXyzSift</OPTION><OPTION selected label="PCXyzRgbSift" value="PCXyzRgbSift">PCXyzRgbSift</OPTION><OPTION selected label="PCXyzShot" value="PCXyzShot">PCXyzShot</OPTION><OPTION selected label="PCXyzRgbNormal" value="PCXyzRgbNormal">PCXyzRgbNormal</OPTION>'''
     return '''<p><form action='/static/objects/addfilecreate' method="post">
 	  CREATE VIEW OR MODEL AND ADD FILE <br>
-	  Full path: <input name="path" type="text" /><br>
+          Full path: <input name="path" type="text" /><br>
 	  Name: <input name="Name" type="text" /><br>
 	  DocumentType: <input name="DocumentType" type="text" /><br>
 	  ViewsSet: <input name="ViewsSet" type="text" /><br>
@@ -776,5 +778,6 @@ def view_images(i):
     print "delete List"
  #   del FileList[:]
     return foto2
-    
-run(host='localhost', port=8080)
+
+if __name__ == '__main__':
+    run(host='localhost', port=8080)
